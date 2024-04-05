@@ -1,0 +1,19 @@
+{
+  "name": "blsm-script",
+  "version": "1.0.0",
+  "description": "This script sets up the connection to the blossomAI database using a custom github action.",
+  "bin": {
+    "init-blsm": "./blsm-setup.js"
+  },
+  "keywords": [
+    "blossom",
+    "ai",
+    "database",
+    "setup"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "brxjonesdev",
+  "license": "ISC"
+}

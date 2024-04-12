@@ -1,6 +1,6 @@
 {
   "name": "blsm-cli",
-  "version": "1.2.0",
+  "version": "1.2.5",
   "description": "This script sets up the connection to the blossomAI database using a custom github action.",
   "main": "setup.js",
   "bin": {

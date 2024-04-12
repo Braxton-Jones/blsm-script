@@ -4,12 +4,6 @@ const path = require('path');
 const { createClient } = require('@supabase/supabase-js');
 require('dotenv').config();
 
-// Load the environment variables
-if (!process.env.SUPABASE_URL || !process.env.SUPABASE_KEY) {
-    console.log(process.env.SUPABASE_URL, process.env.SUPABASE_KEY)
-    console.error('Please provide the SUPABASE_URL and SERVICE_KEY in the .env file');
-    process.exit(1);
-}
 // Create a single supabase client for interacting with your database
 const supabase = createClient('https://oudbhmhztluirtqlntjf.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im91ZGJobWh6dGx1aXJ0cWxudGpmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTA2NTE2NDIsImV4cCI6MjAyNjIyNzY0Mn0.DzAHC_utS_L4k6DN-nS787V5u_kypik9JriR81FQWCw')
 

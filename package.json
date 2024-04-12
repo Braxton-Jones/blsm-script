@@ -1,10 +1,10 @@
 {
-  "name": "blsm-setup",
+  "name": "blsm-cli",
   "version": "1.0.0",
   "description": "This script sets up the connection to the blossomAI database using a custom github action.",
   "main": "setup.js",
   "bin": {
-    "blsm_init": "./setup.js"
+    "blsm-cli": "./setup.js"
   },
   "keywords": [
     "blossom",
@@ -13,7 +13,8 @@
     "setup"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "blsm_init" : "node setup.js"
   },
   "author": "brxjonesdev",
   "license": "ISC",

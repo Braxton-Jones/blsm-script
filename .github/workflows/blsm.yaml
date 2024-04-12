@@ -1,0 +1,61 @@
+name: blsm_ai_workflow
+
+on:
+  push:
+    branches:
+      - dev
+      - main
+      - master
+  pull_request:
+    types: [opened, closed]
+    branches:
+      - dev
+      - main
+      - master
+  issues:
+    types: [opened, closed, reopened]
+    branches:
+      - dev
+      - main
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+
+    - name: Install dependencies
+      run: npm install
+    
+    - name: Install axios
+      run: npm install axios
+
+    - name: Sending updates to Blossom! 🌸
+      run: node .github/scripts/blsm.js
+      env:
+        EVENT_NAME: ${{ github.event_name }}
+        REPO: ${{ github.repository}}
+        USERNAME: ${{ github.actor }}
+        COMMIT_MSG: ${{ github.event.head_commit.message}}
+        COMMIT_TIMESTAMP: ${{ github.event.head_commit.timestamp}}
+        COMMIT_ID: ${{ github.sha}}
+        COMMIT_URL: ${{ github.event.head_commit.url}}
+        PULL_REQUEST_NUMBER: ${{ github.event.number}}
+        PULL_REQUEST_STATE: ${{ github.event.pull_request.state}}
+        PULL_REQUEST_TITLE: ${{ github.event.pull_request.title}}
+        PULL_REQUEST_BODY: ${{ github.event.pull_request.body}}
+        ISSUE_ACTION: ${{ github.event.action}}
+        ISSUE_BODY: ${{ github.event.issue.body}}
+        ISSUE_TITLE: ${{ github.event.issue.title}}
+        ISSUE_NUMBER: ${{ github.event.issue.number}}
+        ISSUE_STATE: ${{ github.event.issue.state}}
+
+

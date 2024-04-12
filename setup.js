@@ -75,8 +75,9 @@ const validateRepoName = async (repoName, username) => {
 }
 
 const createFiles = async () => {
+    const currentDir = process.cwd();
     // create .github if it doesn't exist
-    const githubDir = path.join(__dirname, '.github');
+    const githubDir = path.join(currentDir, '.github');
     if (!fs.existsSync(githubDir)) {
         console.log("Creating .github directory....")
         fs.mkdirSync(githubDir);
